@@ -25,7 +25,7 @@ var hands = []string{"highest-card", "one-pair", "two-pairs", "three-of-a-kind",
 func main() {
 	var j int
 	fmt.Println("Enter Cards")
-	fmt.Scanf("%s %s %s %s %s %s %s %s %s %s", &hand[0], &hand[1], &hand[2], &hand[3], &hand[4], deck[0], deck[1], deck[2], deck[3], deck[4])
+	fmt.Scanf("%s %s %s %s %s %s %s %s %s %s", &hand[0], &hand[1], &hand[2], &hand[3], &hand[4], deck[0], deck[1], deck[2], deck[3], deck[4]) //Enter cards
 	var best = 0
 	for i := 1; i < 32; i++ {
 		var k = 0
@@ -68,7 +68,7 @@ func flush() bool {
 	}
 	return true
 }
-func kind(a int) bool {
+func kind(a int) bool { // 3 of kind have 3 cards of one rank and two cards of two other rank , 2 of kind has to cards of a matching card
 
 	for i := 0; i < 5-a; i++ {
 		for j := 1; j < a; j++ {
@@ -82,7 +82,7 @@ func kind(a int) bool {
 	return false
 }
 
-func fullhouseKind(a int, b int) bool {
+func fullhouseKind(a int, b int) bool { //Any three cards of same number ot face value , plus any other two cards of the same number ot face value
 	for i := 0; i < 5-a-b; i++ {
 		for j := i + a; j <= 5; j++ {
 			for k := 1; k < a; k++ {
@@ -102,7 +102,7 @@ func fullhouseKind(a int, b int) bool {
 	return false
 }
 
-func calc() int {
+func calc() int { //Best hand will be selected
 	if kind(4) {
 		return FOUR_OF_A_KIND
 	} else if fullhouseKind(3, 2) || fullhouseKind(2, 3) {
