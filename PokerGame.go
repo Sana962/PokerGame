@@ -8,7 +8,7 @@ var hand [5][3]string
 var deck [5][3]string
 var play [5][3]string
 
-const (
+const ( //Hand  values
 	HIGHEST_CARD = 0
 	ONE_PAIR
 	TWO_PAIRS
